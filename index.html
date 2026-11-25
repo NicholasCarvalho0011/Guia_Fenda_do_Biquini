@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fenda do Biquíni</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- 1. Cabeçalho de Navegação -->
+  <header class="main-header">
+    <div class="header-content">
+      <a href="#inicio" class="brand">
+        <img src="img/logo-siricascudo.webp" alt="Logo Siri Cascudo" class="header-logo">
+        <span>Guia da Fenda do Biquíni</span>
+      </a>
+
+      <nav aria-label="Navegação principal">
+        <ul class="nav-links">
+          <li><a href="#carrossel">Destaques</a></li>
+          <li><a href="#guia">Moradores & Locais</a></li>
+          <li><a href="login.html" class="btn-sair">Sair</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- 2. Carrossel de Imagens -->
+    <section id="carrossel" class="carousel-section" aria-label="Destaques da Fenda do Biquíni">
+      <div class="carousel-container">
+        <div class="carousel-slide active">
+          <img src="img/SLIDE1.jpg" alt="Vista panorâmica da cidade submarina da Fenda do Biquíni">
+          <div class="carousel-caption">
+            <h2>Bem-vindo à Fenda do Biquíni</h2>
+            <p>Explore os moradores e os 6 pontos mais icônicos do fundo do mar.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <img src="img/SLIDE2.jpg" alt="Fachada do restaurante O Siri Cascudo">
+          <div class="carousel-caption">
+            <h2>O Siri Cascudo</h2>
+            <p>A casa oficial do famoso Hambúrguer de Siri.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <img src="img/SLIDE3.jpg" alt="Rua da Concha com as casas do Patrick, Lula Molusco e Bob Esponja">
+          <div class="carousel-caption">
+            <h2>Vizinhança da Rua da Concha</h2>
+            <p>Conheça as famosas casas do Patrick, do Lula Molusco e do Bob Esponja.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <img src="img/SLIDE4.jpg" alt="Campos de algas e águas-vivas">
+          <div class="carousel-caption">
+            <h2>Campos de algas e águas-vivas</h2>
+            <p>Os belos campos de algas e águas-vivas da Fenda do Biquíni.</p>
+          </div>
+        </div>
+
+        <button class="carousel-btn prev" id="prev-slide" aria-label="Slide anterior">&#10094;</button>
+        <button class="carousel-btn next" id="next-slide" aria-label="Próximo slide">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- 3. Guia de Moradores e Locais -->
+    <section id="guia" class="guide-section">
+      <div class="guide-header">
+        <h2>Moradores e Locais da Fenda do Biquíni</h2>
+        <p>Filtre por categoria para conhecer quem vive e os lugares marcantes da cidade.</p>
+
+        <div class="filter-buttons" role="group" aria-label="Filtrar guia por categoria">
+          <button type="button" class="filter-btn active" data-filter="todos">Todos</button>
+          <button type="button" class="filter-btn" data-filter="personagem">Moradores</button>
+          <button type="button" class="filter-btn" data-filter="local">Locais (7)</button>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <!-- ================= MORADORES ================= -->
+        <article class="guide-card" data-category="personagem">
+          <img src="img/BOBESPONJA.png" alt="Bob Esponja Calça Quadrada">
+          <div class="card-body">
+            <span class="badge badge-personagem">Morador</span>
+            <h3>Bob Esponja Calça Quadrada</h3>
+            <p>Cozinheiro mestre do Siri Cascudo, sempre otimista e pronto para caçar águas-vivas.</p>
+            <img src="img/gif1.gif" alt="" class="card-corner-gif">
+          </div>
+        </article>
+        <!-- Card Morador: Gary, o Caracol -->
+<article class="guide-card" data-category="personagem">
+  <img src="img/GARY.png" alt="Gary, o caracol de estimação do Bob Esponja">
+  <div class="card-body">
+    <span class="badge badge-personagem">Morador</span>
+    <h3>Gary, o Caracol</h3>
+    <p>O fiel caracol de estimação do Bob Esponja. Muito mais inteligente do que parece, adora ler livros e dizer "Miau".</p>
+    <img src="img/gary.gif" alt="" class="card-corner-gif">
+  </div>
+</article>
+
+        <article class="guide-card" data-category="personagem">
+          <img src="img/PATRICK.png" alt="Patrick Estrela">
+          <div class="card-body">
+            <span class="badge badge-personagem">Morador</span>
+            <h3>Patrick Estrela</h3>
+            <p>Melhor amigo do Bob Esponja. Adora dormir, comer e viver grandes aventuras sem sair do lugar.</p>
+            <img src="img/gif4.gif" alt="" class="card-corner-gif">
+          </div>
+        </article>
+
+        <article class="guide-card" data-category="personagem">
+          <img src="img/LULAMOLUSCO.png" alt="Lula Molusco Tentáculos">
+          <div class="card-body">
+            <span class="badge badge-personagem">Morador</span>
+            <h3>Lula Molusco Tentáculos</h3>
+            <p>Vizinho do Bob Esponja e caixa do Siri Cascudo. Apaixonado por clarinete, artes e tranquilidade.</p>
+            <img src="img/gif3.gif" alt="" class="card-corner-gif">
+          </div>
+        </article>
+
+        <article class="guide-card" data-category="personagem">
+          <img src="img/SANDY.png" alt="Sandy Bochechas">
+          <div class="card-body">
+            <span class="badge badge-personagem">Moradora</span>
+            <h3>Sandy Bochechas</h3>
+            <p>Cientista, inventora e mestre de caratê vinda diretamente do Texas para explorar o oceano.</p>
+            <img src="img/sandy.gif" alt="" class="card-corner-gif">
+          </div>
+        </article>
+
+        <!-- Card Morador 5: Seu Sirigueijo -->
+        <article class="guide-card" data-category="personagem">
+          <img src="img/SIRIGUEIJO.png" alt="Seu Sirigueijo">
+          <div class="card-body">
+            <span class="badge badge-personagem">Morador</span>
+            <h3>Seu Sirigueijo (Eugênio)</h3>
+            <p>Fundador e dono do Siri Cascudo. Apaixonado por dinheiro e protetor incansável da fórmula secreta.</p>
+            <img src="img/sirigueijo.gif" alt="" class="card-corner-gif">
+          </div>
+        </article>
+
+        <!-- Card Morador 6: Plankton -->
+        <article class="guide-card" data-category="personagem">
+          <img src="img/plankton.png" alt="Sheldon J. Plankton">
+          <div class="card-body">
+            <span class="badge badge-personagem">Morador</span>
+            <h3>Sheldon J. Plankton</h3>
+            <p>Dono do Balde de Lixo e maior rival do Seu Sirigueijo. Gênio do mal em miniatura que vive bolando planos para roubar a fórmula.</p>
+            <img src="img/plankton.gif" alt="" class="card-corner-gif">
+          </div>
+        </article>
+
+        
+
+        <!-- ================= OS 6 LOCAIS ================= -->
+        <!-- Local 1: Casa do Bob Esponja -->
+        <article class="guide-card" data-category="local">
+          <img src="img/CASABOB.jpg" alt="Casa em formato de abacaxi do Bob Esponja">
+          <div class="card-body">
+            <span class="badge badge-local">Local</span>
+            <h3>Casa do Bob Esponja</h3>
+            <p>Um abacaxi gigante na Rua da Concha, 124, onde Bob Esponja mora com seu caracol de estimação, Gary.</p>
+          </div>
+        </article>
+
+        <!-- Local 2: Casa do Lula Molusco -->
+        <article class="guide-card" data-category="local">
+          <img src="img/CASALULA.jpg" alt="Casa em formato de estátua Moai do Lula Molusco">
+          <div class="card-body">
+            <span class="badge badge-local">Local</span>
+            <h3>Casa do Lula Molusco</h3>
+            <p>Uma estátua estilo Ilha de Páscoa localizada bem entre o abacaxi do Bob Esponja e a pedra do Patrick.</p>
+          </div>
+        </article>
+
+        <!-- Local 3: Casa do Patrick -->
+        <article class="guide-card" data-category="local">
+          <img src="img/CASAPATRICK.jpg" alt="Pedra marrom onde mora o Patrick Estrela">
+          <div class="card-body">
+            <span class="badge badge-local">Local</span>
+            <h3>Casa do Patrick</h3>
+            <p>Uma grande pedra marrom na Rua da Concha, 120, com móveis esculpidos inteiramente na areia.</p>
+          </div>
+        </article>
+
+        <!-- Local 4: Casa da Sandy -->
+        <article class="guide-card" data-category="local">
+          <img src="img/CASASANDY.jpg" alt="Domo de vidro subaquático da Sandy Bochechas">
+          <div class="card-body">
+            <span class="badge badge-local">Local</span>
+            <h3>Casa da Sandy (Domo)</h3>
+            <p>Uma cúpula de vidro cheia de ar puro, grama verde e uma grande árvore onde Sandy vive e faz experimentos.</p>
+          </div>
+        </article>
+
+        <!-- Local 5: O Siri Cascudo -->
+        <article class="guide-card" data-category="local">
+          <img src="img/SIRICASCUDO.jpg" alt="Restaurante O Siri Cascudo">
+          <div class="card-body">
+            <span class="badge badge-local">Local</span>
+            <h3>O Siri Cascudo</h3>
+            <p>O restaurante mais famoso da Fenda do Biquíni, comandado pelo Seu Sirigueijo e lar do Hambúrguer de Siri.</p>
+          </div>
+        </article>
+
+        <!-- Local 6: O Balde de Lixo (Plankton) -->
+        <article class="guide-card" data-category="local">
+          <img src="img/CASAPLANKTON.jpg" alt="Restaurante O Balde de Lixo do Plankton">
+          <div class="card-body">
+            <span class="badge badge-local">Local</span>
+            <h3>O Balde de Lixo (Plankton)</h3>
+            <p>Restaurante rival localizado bem em frente ao Siri Cascudo, onde Plankton e Karen planejam roubar a fórmula secreta.</p>
+          </div>
+        </article>
+
+          <!-- Local 7: Casa do Seu Sirigueijo -->
+<article class="guide-card" data-category="local">
+  <img src="img/CASASIRI.jpg" alt="Casa em formato de âncora enferrujada do Seu Sirigueijo">
+  <div class="card-body">
+    <span class="badge badge-local">Local</span>
+    <h3>Casa do Seu Sirigueijo</h3>
+    <p>Uma grande âncora azul-escura na Rua Âncora, 3541, onde o dono do Siri Cascudo vive com sua filha, Pérola.</p>
+  </div>
+</article>
+      </div>
+    </section>
+  </main>
+
+  <!-- 4. Rodapé -->
+  <footer class="main-footer">
+    <p>Projeto Acadêmico; Simples Guia da Fenda do Biquíni e seus personagens principais.</p>
+  </footer>
+
+  <!-- Widget Flutuante de Acessibilidade -->
+  <div class="acessibilidade-wrapper">
+    <button id="btn-acessibilidade" class="btn-acess-toggle" aria-label="Abrir opções de acessibilidade" title="Acessibilidade">
+      ♿
+    </button>
+
+    <aside id="painel-acessibilidade" class="acess-panel hidden" aria-label="Menu de Acessibilidade">
+      <h3>Acessibilidade</h3>
+      <button type="button" id="toggle-theme">🌓 Modo Escuro / Claro</button>
+      <div class="font-controls">
+        <button type="button" id="font-decrease" aria-label="Diminuir fonte">A-</button>
+        <button type="button" id="font-reset" aria-label="Fonte padrão">A</button>
+        <button type="button" id="font-increase" aria-label="Aumentar fonte">A+</button>
+      </div>
+      <button type="button" id="btn-read-aloud">🔊 Ler texto da página</button>
+    </aside>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

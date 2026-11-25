@@ -1,0 +1,669 @@
+:root {
+  --bg-color: #F0F8FF;
+  --card-bg: #FFFFFF;
+  --text-color: #0A2540;
+  --primary-color: #0077B6;
+  --accent-color: #FFD100;
+  --font-size-base: 16px;
+}
+
+body.dark-mode {
+  --bg-color: #0B132B;
+  --card-bg: #1C2541;
+  --text-color: #F8F9FA;
+  --primary-color: #0096C7;
+  --accent-color: #FFD60A;
+}
+
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  transition: background-color 0.3s, color 0.3s;
+
+  /* Mesmo fundo da tela de login */
+  background: linear-gradient(rgba(0, 119, 182, 0.25), rgba(10, 55, 95, 0.42)),
+              url('../img/fundo.jpg') center/cover no-repeat fixed;
+}
+
+/* Fundo da Fenda do Biquíni no Login */
+.login-container {
+  min-height: 100vh;
+  box-sizing: border-box; /* Faz o padding contar dentro dos 100vh, eliminando a barra de rolagem */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(rgba(0, 119, 182, 0.25), rgba(10, 55, 95, 0.42)),
+              url('../img/fundo.jpg') center/cover no-repeat;
+
+  
+}
+
+.login-card {
+  background-color: rgba(240, 248, 255, 0.94); /* Levemente translúcido */
+  backdrop-filter: blur(8px);
+  padding: 2.2rem;
+  border-radius: 20px;
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  .login-card {
+  position: relative; /* <-- ADICIONE SÓ ESSA LINHA AQUI DENTRO */
+  background-color: rgba(240, 248, 255, 0.94);
+  backdrop-filter: blur(8px);
+  padding: 2.2rem;
+  border-radius: 20px;
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+/* <-- COLE ESSE BLOCO NOVO LOGO ABAIXO --> */
+.card-corner-gif {
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  width: 110px;
+  height: auto;
+  pointer-events: none;
+}
+}
+
+.login-avatar {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-top: -65px; /* Faz o personagem "sair" para fora do topo do card */
+  margin-bottom: 10px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+}
+
+/* --- Tela de Carregamento com GIF --- */
+/* --- Tela de Carregamento com GIF --- */
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  /* Troque 'fundo-carregamento.jpg' pelo nome e extensão exatos da sua imagem na pasta img/ */
+  background-image: linear-gradient(rgba(5, 25, 55, 0.55), rgba(5, 25, 55, 0.70)),
+                    url('../img/fundo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  color: #FFFFFF;
+}
+
+.loading-overlay.hidden {
+  display: none;
+}
+
+.loading-box {
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.race-track {
+  position: relative;
+  height: 70px;
+  margin-bottom: 8px;
+}
+
+.runner-gif {
+  position: absolute;
+  bottom: -8px;
+  left: 0%; /* O JavaScript vai mover isso de 0% até 85% */
+  width: 95px;
+  transition: left 0.1s linear;
+}
+
+.jellyfish-goal {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  font-size: 2.2rem;
+  animation: float 1s infinite alternate ease-in-out;
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 22px;
+  background-color: #0A2540;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 3px solid #FFD100;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background-color: #FFD100;
+  transition: width 0.1s linear;
+}
+
+/* --- Estilização fofa e temática para os campos e botão do Login --- */
+.input-group {
+  text-align: left;
+  margin-bottom: 1.1rem;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: var(--primary-color);
+  margin-bottom: 0.4rem;
+  padding-left: 4px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: #FFFFFF;
+  color: #0A2540;
+  border: 2.5px solid #90E0EF; /* Azul claro estilo bolha/água */
+  border-radius: 14px; /* Cantos bem arredondados e fofos */
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+}
+
+.input-group input::placeholder {
+  color: #8D99AE;
+}
+
+/* Efeito quando o usuário clica para digitar */
+.input-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(0, 119, 182, 0.18);
+  transform: translateY(-1px);
+}
+
+/* Botão principal em Amarelo Vibrante (Bob Esponja) */
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  margin-top: 0.5rem;
+  background-color: #FFD100; /* Amarelo vibrante */
+  color: #0A2540; /* Texto azul escuro para alto contraste WCAG */
+  font-weight: 800;
+  font-size: 1.05rem;
+  border: 2.5px solid #E0A800;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #C99700; /* Efeito 3D estilo botão de desenho */
+  transition: all 0.15s ease;
+}
+
+.btn-primary:hover {
+  background-color: #FFE033;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #C99700;
+}
+
+/* Efeito de apertar o botão */
+.btn-primary:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #C99700;
+}
+
+/* Estilo do link "Entrar como turista" */
+.link-voltar {
+  display: inline-block;
+  margin-top: 1.2rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.link-voltar:hover {
+  text-decoration: underline;
+}
+
+/* Ajustando o card de login para responder ao Modo Escuro */
+body.dark-mode .login-card {
+  background-color: rgba(28, 37, 65, 0.95);
+  color: #F8F9FA;
+}
+
+/* --- Painel de Acessibilidade --- */
+.acessibilidade-wrapper {
+  position: fixed;
+  right: 25px;
+  top: 25px;
+  z-index: 1010;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.btn-acess-toggle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #FFD100;
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  border: 3px solid #0077B6;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.acess-panel {
+  margin-top: 10px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  padding: 15px;
+  border-radius: 12px;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 210px;
+}
+
+.acess-panel.hidden {
+  display: none;
+}
+
+.acess-panel h3 {
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+.acess-panel button {
+  padding: 8px;
+  border: 1px solid var(--primary-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.acess-panel button:hover {
+  background-color: var(--accent-color);
+  color: #0A2540;
+}
+
+.font-controls {
+  display: flex;
+  gap: 5px;
+}
+
+.font-controls button {
+  flex: 1;
+}
+
+/* Escurece o filtro do fundo da Fenda do Biquíni quando o Modo Escuro está ativo */
+body.dark-mode .login-container {
+  background: linear-gradient(rgba(5, 12, 30, 0.78), rgba(11, 19, 43, 0.88)),
+              url('../img/fundo.jpg') center/cover no-repeat;
+}
+
+
+/* =========================================================
+   ESTILOS DA PÁGINA PRINCIPAL (index.html)
+   ========================================================= */
+
+/* 1. Cabeçalho */
+.main-header {
+  background-color: var(--primary-color);
+  color: #FFFFFF;
+  padding: 12px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-bottom: 3px solid var(--accent-color);
+}
+
+.header-content {
+  max-width: 1150px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.header-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--accent-color);
+}
+
+.btn-sair {
+  background-color: #FFD100;
+  color: #0A2540 !important;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+.btn-sair:hover {
+  background-color: #FFE033;
+}
+
+/* 2. Carrossel de Imagens */
+.carousel-section {
+  max-width: 1150px;
+  margin: 24px auto;
+  padding: 0 20px;
+}
+
+.carousel-container {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid var(--accent-color); /* Troca a borda azul para amarelo (#FFD100) */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background-color: #0A2540;
+  height: 400px;
+}
+
+.carousel-slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(5, 20, 45, 0.9));
+  color: #FFFFFF;
+  padding: 30px 24px 20px;
+  text-align: left;
+}
+
+.carousel-caption h2 {
+  margin: 0 0 6px;
+  color: #FFD100;
+  font-size: 1.6rem;
+}
+
+.carousel-caption p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 209, 0, 0.9);
+  color: #0A2540;
+  border: 2px solid #0077B6;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.carousel-btn:hover {
+  background-color: #FFE033;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn.prev { left: 16px; }
+.carousel-btn.next { right: 16px; }
+
+/* 3. Guia de Moradores e Locais */
+.guide-section {
+  max-width: 1150px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.guide-header {
+  text-align: center;
+  margin-bottom: 30px;
+  background-color: rgba(255, 255, 255, 0.94); /* Quadro branco levemente translúcido */
+  backdrop-filter: blur(8px);
+  padding: 24px 20px;
+  border-radius: 20px;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Mantém o quadro escuro e legível quando o Modo Escuro estiver ativo */
+body.dark-mode .guide-header {
+  background-color: rgba(28, 37, 65, 0.95);
+}
+
+.guide-header h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 22px;
+  border-radius: 12px;
+  border: 2px solid var(--primary-color);
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background-color: #FFD100;
+  color: #0A2540;
+  border-color: #E0A800;
+}
+
+/* Grade de Cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 24px;
+}
+
+.guide-card {
+  background-color: var(--card-bg);
+  border: 2px solid var(--primary-color);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column; 
+}
+
+.guide-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+.guide-card > img {
+  width: 100%;
+  height: 300px;               /* Diminui a altura do espaço da foto (era 220px) */
+  object-fit: contain;         /* Encaixa a imagem inteira sem dar zoom nem cortar as bordas */
+  object-position: center;     /* Centraliza perfeitamente no meio (horizontal e vertical) */
+  padding: 10px;               /* Dá um respiro em volta da foto para ela parecer menor e mais limpa */
+  box-sizing: border-box;
+  display: block;
+  background-color: #CAF0F8;
+}
+
+.card-body {
+  padding: 18px;
+  flex: 1;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.badge-personagem {
+  background-color: #FFD100;
+  color: #0A2540;
+}
+
+.badge-local {
+  background-color: #0077B6;
+  color: #FFFFFF;
+}
+
+.card-body h3 {
+  margin: 0 0 8px;
+  color: var(--primary-color);
+  font-size: 1.25rem;
+}
+
+.card-body p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* 4. Rodapé */
+.main-footer {
+  background-color: var(--primary-color);
+  color: #FFFFFF;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+  border-top: 3px solid var(--accent-color);
+  font-size: 0.9rem;
+}
+
+/* Fundo personalizado com imagem apenas para o quadro das fotos dos moradores */
+.guide-card[data-category="personagem"] > img {
+  background-image: url('../img/BRILHO.jpg'); /* Troque pelo nome e extensão exatos da sua imagem na pasta img/ */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Posiciona o GIF de pixel art no canto inferior direito dos cards de moradores */
+.guide-card[data-category="personagem"] .card-body {
+  position: relative;
+  padding-right: 75px; /* Reserva espaço à direita para o GIF não encostar no texto */
+  min-height: 125px;   /* Garante altura mínima mesmo em textos mais curtos */
+}
+
+.guide-card[data-category="personagem"] .card-corner-gif {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+body.dark-mode,
+body.dark-theme {
+  background: linear-gradient(rgba(5, 12, 30, 0.78), rgba(11, 19, 43, 0.88)),
+              url('../img/fundo.jpg') center/cover no-repeat fixed;
+}
+
+/* Faz as fotos das moradias preencherem o quadro todo e ficarem 100% centralizadas */
+.guide-card[data-category="local"] > img {
+  height: 220px;                 /* Proporção ideal para fotos de paisagem/casas */
+  padding: 0;                    /* Remove a borda azul-clara em volta da foto */
+  object-fit: cover;             /* Preenche o topo do card de ponta a ponta sem distorcer */
+  object-position: center center; /* Centraliza perfeitamente no meio da imagem */
+}
+
+/* Cursor personalizado em todo o site */
+body {
+  cursor: url('../img/CURSOR.png'), auto;
+}
+
+/* Cursor diferente ao passar em cima de botões e links clicáveis */
+a, button, .filter-btn, .carousel-btn {
+  cursor: url('../img/CLIQUE.png'), pointer;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fenda do Biquíni-Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Widget Flutuante de Acessibilidade -->
+<div class="acessibilidade-wrapper">
+  <button id="btn-acessibilidade" class="btn-acess-toggle" aria-label="Abrir opções de acessibilidade" title="Acessibilidade">
+    ♿
+  </button>
+
+  <aside id="painel-acessibilidade" class="acess-panel hidden" aria-label="Menu de Acessibilidade">
+    <h3>Acessibilidade</h3>
+    <button type="button" id="toggle-theme">🌓 Modo Escuro / Claro</button>
+    <div class="font-controls">
+      <button type="button" id="font-decrease" aria-label="Diminuir fonte">A-</button>
+      <button type="button" id="font-reset" aria-label="Fonte padrão">A</button>
+      <button type="button" id="font-increase" aria-label="Aumentar fonte">A+</button>
+    </div>
+    <button type="button" id="btn-read-aloud">🔊 Ler texto da página</button>
+  </aside>
+</div>
+<main class="login-container">
+  <section class="login-card">
+    <img src="img/logo-siricascudo.webp" alt="Avatar do Bob Esponja sorrindo" class="login-avatar">
+    <h1>Bem-vindo à Fenda do Biquíni!</h1>
+    <p>Identifique-se para explorar o guia de moradores e locais.</p>
+
+    <form id="form-login">
+      <div class="input-group">
+        <label for="email">E-mail do Morador:</label>
+        <input type="email" id="email" placeholder="bob@siricascudo.com" required>
+      </div>
+
+      <div class="input-group">
+        <label for="senha">Senha Secreta:</label>
+        <input type="password" id="senha" placeholder="••••••••" required>
+      </div>
+
+      <button type="submit" class="btn-primary">Mergulhar na Fenda!</button>
+    </form>
+
+    <a href="index.html" class="link-voltar">Entrar como turista (sem login)</a>
+    
+    <img src="img/principal.gif" alt="Personagem animado no canto do cartão" class="card-corner-gif">
+
+  </section>
+</main>
+
+<!-- Tela de Carregamento (começa oculta com a classe 'hidden') -->
+<div id="loading-screen" class="loading-overlay hidden">
+  <div class="loading-box">
+    <h2>Preparando o submarino...</h2>
+    
+    <!-- Pista onde o GIF corre junto com o progresso -->
+    <div class="race-track">
+      <img src="img/carregando.gif" alt="Bob Esponja correndo" id="bob-runner" class="runner-gif">
+      <span class="jellyfish-goal" aria-hidden="true"></span>
+    </div>
+
+    <div class="progress-bar-bg">
+      <div id="progress-fill" class="progress-bar-fill"></div>
+    </div>
+    <p id="loading-percent">0%</p>
+  </div>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>
