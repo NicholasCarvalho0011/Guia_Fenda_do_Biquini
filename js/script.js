@@ -196,3 +196,38 @@ filterBtns.forEach(btn => {
   });
 });
 
+// --- Controle de Música de Fundo ---
+const bgMusic = document.getElementById('bg-music');
+const btnMusic = document.getElementById('btn-music');
+
+if (bgMusic && btnMusic) {
+  bgMusic.volume = 0.35; // Volume agradável (35%)
+
+  const atualizarIcone = () => {
+    btnMusic.textContent = bgMusic.paused ? '🔇' : '🎵';
+  };
+
+  // Tenta tocar automaticamente ao abrir a página
+  bgMusic.play().then(() => {
+    atualizarIcone();
+  }).catch(() => {
+    // Se o navegador bloquear o autoplay, toca no primeiro clique na página
+    const iniciarNoClique = () => {
+      bgMusic.play().then(atualizarIcone).catch(() => {});
+      document.removeEventListener('click', iniciarNoClique);
+    };
+    document.addEventListener('click', iniciarNoClique);
+  });
+
+  // Botão manual para pausar ou tocar
+  btnMusic.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (bgMusic.paused) {
+      bgMusic.play();
+    } else {
+      bgMusic.pause();
+    }
+    atualizarIcone();
+  });
+}
+
