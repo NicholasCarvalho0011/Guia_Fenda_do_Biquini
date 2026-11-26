@@ -663,6 +663,11 @@ body {
   cursor: url('../img/CURSOR.png'), auto;
 }
 
+/* Cursor diferente ao passar em cima de botões e links clicáveis */
+a, button, .filter-btn, .carousel-btn {
+  cursor: url('../img/CLIQUE.png'), pointer;
+}
+
 /* Botão flutuante de música */
 .btn-music-toggle {
   position: fixed;
@@ -684,9 +689,4 @@ body {
 .btn-music-toggle:hover {
   background-color: #FFE033;
   transform: scale(1.08);
-}
-
-/* Cursor diferente ao passar em cima de botões e links clicáveis */
-a, button, .filter-btn, .carousel-btn {
-  cursor: url('../img/CLIQUE.png'), pointer;
 }
