@@ -663,6 +663,29 @@ body {
   cursor: url('../img/CURSOR.png'), auto;
 }
 
+/* Botão flutuante de música */
+.btn-music-toggle {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 1010;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #FFD100;
+  color: #0A2540;
+  font-size: 1.4rem;
+  border: 3px solid #0077B6;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-music-toggle:hover {
+  background-color: #FFE033;
+  transform: scale(1.08);
+}
+
 /* Cursor diferente ao passar em cima de botões e links clicáveis */
 a, button, .filter-btn, .carousel-btn {
   cursor: url('../img/CLIQUE.png'), pointer;
